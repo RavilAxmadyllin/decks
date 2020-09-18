@@ -23,7 +23,7 @@ const App: React.FC = () => {
             <Header profile={profile} isAuth={isAuth} isLoading={isLoading}/>
             <ErrorBar/>
             <Routes/>
-            <SettingProfile/>
+            {/*<SettingProfile/>*/}
         </div>
     )
 }
