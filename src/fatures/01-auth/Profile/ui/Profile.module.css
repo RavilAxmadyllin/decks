@@ -1,0 +1,20 @@
+
+.overlayProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile{
+    background: #dcd9d9;
+    border-radius: 10px;
+    width: 120px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile img {
+    width: 100px;
+    height: auto;
+}

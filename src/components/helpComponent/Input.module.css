@@ -1,0 +1,18 @@
+.input {
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #080232;
+    font-size: 15px;
+    font-weight: 500;
+    width: 400px;
+    margin: 10px;
+    border-bottom: 1px solid #080232;
+}
+.input:hover,.input:focus {
+    border-bottom: 1px solid #55608f;
+    color: #55608f;
+}
+.checkbox {
+    display: flex;
+}

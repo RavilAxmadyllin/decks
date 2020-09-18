@@ -1,0 +1,28 @@
+.simpleButton {
+    background-color: #55608f;
+    border: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.simpleButton:hover {
+    background: linear-gradient(45deg, #49a09d, #080232);
+    opacity: .6;
+}
+.simpleButton:active, .simpleButton:focus {
+    outline: none;
+}
+.simpleButton:active {
+    opacity: 0.7;
+}
+.btnDisabled {
+    opacity: 0.4;
+    color: #989898;
+}
