@@ -1,4 +1,5 @@
-import { authMe } from "../Login/bll/loginReducer"
+import {authMe} from '../Login/bll/loginReducer'
+import {ThunkActionType} from '../../../entites/entites'
 
 const initialState = {
     initialApp: false,
@@ -25,10 +26,11 @@ export const payload = (isLoading: boolean, error: string | null) => {
 export const initialApp = (initialApp: boolean) => {
     return {type: 'INITIAL/APP/REDUCER', payload: {initialApp}} as const
 }
-export const initApp = () =>async (dispatch:any) => {
+export const initApp = ():ThunkAction =>async (dispatch) => {
     await dispatch(authMe())
     dispatch(initialApp(true))
 }
 type InitialState = typeof initialState
 export type AppPayloadType = ReturnType<typeof payload>
+type ThunkAction = ThunkActionType<Actions>
 type Actions = AppPayloadType | ReturnType<typeof initialApp>

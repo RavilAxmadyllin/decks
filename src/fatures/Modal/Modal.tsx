@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Modal.module.scss'
 
 
-export const Modal: React.FC<ModalType> = ({children, closeModal, show}) => {
+export const Modal: React.FC<ModalType> = ({children, closeModal, show, width}) => {
     const closeHandler = (event: React.KeyboardEvent & React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         // if (event.target === overlayRef.current) closeModal()
         closeModal()
@@ -13,7 +13,7 @@ export const Modal: React.FC<ModalType> = ({children, closeModal, show}) => {
     return (
         <>
             <div className={style.modalOverlay} onClick={closeHandler} />
-            <div className={style.modal}>
+            <div className={style.modal} style={{width}}>
                 <div className={style.modalClose} onClick={closeHandler}>&times;</div>
                 {children}
             </div>
@@ -23,4 +23,5 @@ export const Modal: React.FC<ModalType> = ({children, closeModal, show}) => {
 type ModalType = {
     show: boolean
     closeModal: () => void
+    width?: string
 }

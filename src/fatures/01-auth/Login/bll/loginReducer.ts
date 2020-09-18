@@ -73,7 +73,11 @@ export const logout = () => async (dispatch: Dispatch) => {
     await loginAPI.signOut()
     dispatch(actions.setProfile(null, null, null))
     dispatch(actions.setAthMe(false))
-
+}
+export const changeProfile = (value: string, image= '') => async (dispatch:Dispatch) => {
+   const result =  await loginAPI.refreshProfile(value, image)
+    const {name, _id, avatar} = result.updatedUser
+    dispatch(actions.setProfile(name, _id, avatar))
 }
 
 
