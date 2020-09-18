@@ -1,17 +1,14 @@
-
 .page {
     display: flex;
     flex-direction: column;
-    align-items: start;
     margin: 50px 0;
     padding: 10px 25px;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     min-height: 70vh;
-
-    .overlay {
-    width: 900px;
-    }
 }
 
+.overlay {
+    width: 900px;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import userPhoto from '../../../../assets/avatar.png'
-import style from './Profile.module.css'
+import style from './Profile.module.scss'
 import {Button} from '../../../../components/helpComponent/Button'
 
 type ProfilePropsType = {

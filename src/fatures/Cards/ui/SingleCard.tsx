@@ -8,7 +8,7 @@ type PropsType = {
 export const SingleCard:React.FC<PropsType> = (props) => {
     let {oneCard} = props
     if(!oneCard) {
-        return  <div>Wait</div>
+        return  <div>no cards yet</div>
     }
     return (
         <div className={style.container}>

@@ -7,6 +7,7 @@
   bottom: 0;
   z-index: 2;
 }
+
 .modal {
   background: #fff;
   width: 600px;
@@ -19,14 +20,25 @@
   transform: translate(-50%, -50%);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
   color: #080232;
+  animation: modal .5s both;
 
-  .modalClose{
+  .modalClose {
     cursor: pointer;
     font-size: 38px;
     font-weight: 500;
     position: absolute;
     right: 20px;
-    top:-1px;
+    top: -1px;
     color: #080232;
   }
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
 }

@@ -6,7 +6,7 @@ import {signIn} from '../bll/loginReducer'
 import {NavLink, Redirect} from 'react-router-dom'
 import {AppStateType} from '../../../../bll/store'
 
-import style from './Login.module.css'
+import style from './Login.module.scss'
 
 export const Login = () => {
     const [email, setEmail] = useState<string>('test@email.nya')

@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Header.module.css'
+import style from './Header.module.scss'
 import ava from '../assets/avatar.png'
 import { NavLink } from 'react-router-dom'
 import {Link} from '../components/helpComponent/Link'
@@ -24,10 +24,6 @@ export const Header = (props: PropsType) => {
             <div className={style.container}>
                 <div style={{color:'white'}}>LOGO</div>
                 <div className={style.navBar}>
-
-                    {/*<NavLink to={'/profile'} className={style.link} activeClassName={style.active}>profile</NavLink>*/}
-                    {/*<NavLink to={'/packs'} className={style.link} activeClassName={style.active}>packs</NavLink>*/}
-                    {/*<NavLink to={'/cards/5f1f0d43f9db0f235812ec83'} className={style.link} activeClassName={style.active}>cards</NavLink>*/}
                     {!props.isAuth && <>
                         <NavLink to={'/forgot'} className={style.link} activeClassName={style.active}>forgot</NavLink>
                         <NavLink to={'/login'} className={style.link} activeClassName={style.active}>login</NavLink>

@@ -6,10 +6,10 @@ import {Search} from '../../Search/Search'
 import {CardPack} from './Pack'
 import {setPage, setSearch} from '../../Search/bll/searchReducer'
 import {Pagination} from '../../Pagination/Pagination'
-import style from './Packs.module.scss'
 import {Button} from '../../../components/helpComponent/Button'
 import {FormModal} from '../../../components/helpComponent/FormModal'
-import { Redirect } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+import style from './Packs.module.scss'
 
 export const CardPacks = React.memo(() => {
     const {packs} = useSelector((state: AppStateType) => state.packs)
@@ -25,8 +25,8 @@ export const CardPacks = React.memo(() => {
     const addDeck = (value: string) => dispatch(createPack(value))
     const searchInput = useCallback((value: string) => dispatch(setSearch(value)), [dispatch])
     const onChangePage = (num: number) => dispatch(setPage(num))
-    if(!isAuth){
-        return <Redirect to={'/login'} />
+    if (!isAuth) {
+        return <Redirect to={'/login'}/>
     }
     return (
         <div className={style.page}>
@@ -40,7 +40,7 @@ export const CardPacks = React.memo(() => {
                     <thead>
                     <tr>
                         <td>name</td>
-                        <td>Gade</td>
+                        <td>Grade</td>
                         <td>cards total</td>
                         <td>actions</td>
                     </tr>

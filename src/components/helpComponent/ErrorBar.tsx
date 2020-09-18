@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './ErrorBar.module.css'
+import style from './ErrorBar.module.scss'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../bll/store'
 import { payload } from '../../fatures/01-auth/InitialApp/appReducer'

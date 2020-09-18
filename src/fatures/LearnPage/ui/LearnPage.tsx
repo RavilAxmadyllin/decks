@@ -21,10 +21,10 @@ export const LearnPage: React.FC<PropsType> = ({id, cards, show, onClose}) => {
         <Modal show={show} closeModal={onClose}>
             <p>Learn page : </p>
             <div className={style.page}>
-                <Button onClick={onNext} name={'next'}/>
+                <Button onClick={onNext} name={'next'} disabled={!currentCard}/>
                 <SingleCard oneCard={currentCard}/>
             </div>
-            {grades.map((g, i) => (
+            {currentCard && grades.map((g, i) => (
                 <button key={'grade-' + i} onClick={() => sentGrade(g)}>{g}</button>))}
         </Modal>
     )

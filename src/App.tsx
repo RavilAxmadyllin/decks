@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react'
-import './App.css'
+import './App.scss'
 import {Header} from './Header/Header'
 import {Routes} from './Routes/Routes'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from './bll/store'
 import {ErrorBar} from './components/helpComponent/ErrorBar'
 import {initApp} from './fatures/01-auth/InitialApp/appReducer'
+import {SettingProfile} from './fatures/01-auth/Profile/ui/SettingProfile'
 
 
 const App: React.FC = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             <Header profile={profile} isAuth={isAuth} isLoading={isLoading}/>
             <ErrorBar/>
             <Routes/>
+            <SettingProfile/>
         </div>
     )
 }
