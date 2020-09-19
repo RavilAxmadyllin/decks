@@ -2,6 +2,7 @@ import {InferActionTypes, ThunkActionType} from '../../../../entites/entites'
 import {loginAPI} from '../api/loginAPI'
 import {Dispatch} from 'redux'
 import {AppPayloadType, payload} from '../../InitialApp/appReducer'
+import Cookies from 'js-cookie'
 
 const initialState = {
     isAuth: false,
@@ -60,6 +61,7 @@ export const authMe = (): LoginThunkType => async (dispatch) => {
     dispatch(payload(true, null))
     try {
         const data = await loginAPI.authMe()
+        Cookies.set('token', data.token)
         const {name, _id, avatar} = data
         dispatch(actions.setAthMe(true))
         dispatch(payload(false, null))

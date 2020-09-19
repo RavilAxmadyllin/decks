@@ -1,12 +1,13 @@
 import {CardPack, packsAPI} from '../api/packsAPI'
 import {InferActionTypes, ThunkActionType} from '../../../entites/entites'
 import {setTotalPage} from '../../Search/bll/searchReducer'
-import {AppPayloadType, payload} from '../../01-auth/InitialApp/appReducer'
+import {AppPayloadType, payload} from '../../auth/InitialApp/appReducer'
+import Cookies from 'js-cookie'
 
 const initialState = {
     packs: [] as Array<CardPack>,
 }
-export const packsReducer = (state:InitialState = initialState, action: PacksActionsType) => {
+export const packsReducer = (state: InitialState = initialState, action: PacksActionsType) => {
     switch (action.type) {
         case 'PACKS_REDUCER/SET_PACKS':
             return {...state, packs: [...action.packs]}
@@ -24,6 +25,7 @@ export const getPacks = (search = '', page = 1): ThunkPacksType => async (dispat
     dispatch(payload(true, null))
     try {
         const data = await packsAPI.getPacks(search, page)
+        Cookies.set('token', data.token)
         dispatch(setTotalPage(data.cardPacksTotalCount, page))
         dispatch(actions.setPacksSuccess(data.cardPacks))
         dispatch(payload(false, null))

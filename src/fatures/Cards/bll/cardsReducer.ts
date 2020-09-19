@@ -1,6 +1,6 @@
 import {cardsAPI, CardType} from '../api/cardsAPI'
 import {setTotalPage} from '../../Search/bll/searchReducer'
-import {AppPayloadType, payload} from '../../01-auth/InitialApp/appReducer'
+import {AppPayloadType, payload} from '../../auth/InitialApp/appReducer'
 import {ThunkActionType} from '../../../entites/entites'
 
 const initialState = {

@@ -1,15 +1,17 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import thunk from 'redux-thunk'
-import {loginReducer} from '../fatures/01-auth/Login/bll/loginReducer'
-import {registerReducer} from '../fatures/01-auth/Registration/bll/registerReducer'
-import {recoveryReducer} from '../fatures/01-auth/Forgot/bll/recoveryReducer'
+import {loginReducer} from '../fatures/auth/Login/bll/loginReducer'
+import {registerReducer} from '../fatures/auth/Registration/bll/registerReducer'
+import {recoveryReducer} from '../fatures/auth/Forgot/bll/recoveryReducer'
 import {packsReducer} from '../fatures/Packs/bll/packsReducer'
 import {cardsReducer} from '../fatures/Cards/bll/cardsReducer'
 import {searchReducer} from '../fatures/Search/bll/searchReducer'
-import {appReducer} from '../fatures/01-auth/InitialApp/appReducer'
+import {appReducer} from '../fatures/auth/InitialApp/appReducer'
+import {usersReducer} from '../fatures/Users/bll/usersReducer'
 
 const rootReducer = combineReducers({
     app: appReducer,
+    users: usersReducer,
     login: loginReducer,
     register: registerReducer,
     recovery: recoveryReducer,

@@ -1,5 +1,6 @@
 .pagination{
   display: flex;
+  flex-wrap: wrap;
   span {
     padding: 5px 10px;
     margin-left: 5px;

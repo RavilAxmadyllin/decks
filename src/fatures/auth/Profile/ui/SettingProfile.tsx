@@ -14,7 +14,10 @@ export const SettingProfile: React.FC<PropsType> = ({show, onShow}) => {
     const [avatar, setAvatar] = useState<string | null>(profile.avatar)
     const dispatch = useDispatch()
     const submitHandler = () => {
-        if (avatar && value) dispatch(changeProfile(value, avatar))
+        if (avatar && value) {
+            dispatch(changeProfile(value, avatar))
+            onShow()
+        }
     }
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0]
@@ -32,7 +35,7 @@ export const SettingProfile: React.FC<PropsType> = ({show, onShow}) => {
                 </div>
                 <div className={style.form}>
                     <div className={style.input}>
-                        <Input placeholder={'name'} value={value ? value : undefined}
+                        <Input placeholder={'name'} value={value ? value : ''}
                                onChange={(e) => setValue(e.currentTarget.value)}/>
                     </div>
                     <ButtonFile>

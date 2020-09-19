@@ -5,7 +5,8 @@
   color: #080232;
   font-size: 15px;
   font-weight: 500;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin: 10px;
   border-bottom: 1px solid #080232;
 
@@ -13,4 +14,7 @@
     border-bottom: 1px solid #55608f;
     color: #55608f;
   }
+}
+.checkbox {
+  margin-bottom: 10px;
 }

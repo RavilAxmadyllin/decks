@@ -2,7 +2,7 @@ import React from 'react'
 import style from './ErrorBar.module.scss'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../bll/store'
-import { payload } from '../../fatures/01-auth/InitialApp/appReducer'
+import { payload } from '../../fatures/auth/InitialApp/appReducer'
 export const ErrorBar = () => {
     const {error} = useSelector( (state: AppStateType) => state.app)
     const dispatch = useDispatch()

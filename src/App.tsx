@@ -5,7 +5,8 @@ import {Routes} from './Routes/Routes'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from './bll/store'
 import {ErrorBar} from './components/helpComponent/ErrorBar'
-import {initApp} from './fatures/01-auth/InitialApp/appReducer'
+import {initApp} from './fatures/auth/InitialApp/appReducer'
+import {Users} from './fatures/Users/ui/Users'
 
 
 const App: React.FC = () => {

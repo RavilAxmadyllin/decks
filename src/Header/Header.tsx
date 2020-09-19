@@ -1,19 +1,9 @@
 import React from 'react'
 import style from './Header.module.scss'
 import ava from '../assets/avatar.png'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {Link} from '../components/helpComponent/Link'
 import {Preloader} from '../components/helpComponent/Preloader'
-
-type PropsType = {
-    isAuth: boolean
-    profile: {
-        name: string | null
-        id: string | null
-        avatar: string | null
-    }
-    isLoading: boolean
-}
 
 
 export const Header = (props: PropsType) => {
@@ -22,7 +12,11 @@ export const Header = (props: PropsType) => {
     return (
         <div className={style.header}>
             <div className={style.container}>
-                <div style={{color:'white'}}>LOGO</div>
+                <div className={style.secondBlock}>
+                    <Link path={'/profile'} title={'LOGO'}/>
+                    <div><NavLink to={'/users'} className={style.link} activeClassName={style.active}>users</NavLink>
+                    </div>
+                </div>
                 <div className={style.navBar}>
                     {!props.isAuth && <>
                         <NavLink to={'/forgot'} className={style.link} activeClassName={style.active}>forgot</NavLink>
@@ -34,7 +28,19 @@ export const Header = (props: PropsType) => {
                     <Link path={'/profile'} title={name}/>
                 </div>}
             </div>
-            {props.isLoading &&  <Preloader/>}
+            {props.isLoading && <Preloader/>}
         </div>
     )
+}
+
+//type
+
+type PropsType = {
+    isAuth: boolean
+    profile: {
+        name: string | null
+        id: string | null
+        avatar: string | null
+    }
+    isLoading: boolean
 }
