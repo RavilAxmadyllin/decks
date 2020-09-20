@@ -18,7 +18,7 @@ export const Users = () => {
 
     useEffect(() => {
         dispatch(getUsers(page))
-    }, [page])
+    }, [page, dispatch])
 
     const userBlockRef = useRef(null)
     const scrollHandler = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
@@ -52,7 +52,7 @@ const User: React.FC<{ user: UserType }> = ({user}) => {
     return (
         <label className={style.userItem}>
             <div className={style.avatar}>
-                <img src={user.avatar ? user.avatar : userPng} alt="photo"/>
+                <img src={user.avatar ? user.avatar : userPng} alt={'user'}/>
             </div>
             <div className={style.userDesc}>
                 <h4><span>name :</span> {user.name}</h4>

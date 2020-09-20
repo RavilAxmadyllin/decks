@@ -41,7 +41,7 @@ export const CardPacks = React.memo(() => {
                     <tr>
                         <td>name</td>
                         <td>Grade</td>
-                        <td>cards total</td>
+                        <td>total</td>
                         <td>actions</td>
                     </tr>
                     </thead>

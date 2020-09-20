@@ -14,20 +14,26 @@ export const LearnPage: React.FC<PropsType> = ({id, cards, show, onClose}) => {
         if (cards.length > 0) setCurrentCard(getCard(cards))
     }, [dispatch, id, cards])
     const onNext = () => setCurrentCard(getCard(cards))
-    const sentGrade = (grades: number) => dispatch(sendGrade(currentCard._id, grades))
-
+    const sentGrade = (grades: number) => {
+        dispatch(sendGrade(currentCard._id, grades))
+        setCurrentCard(getCard(cards))
+    }
     return (
         <Modal show={show} closeModal={onClose}>
             <p>Learn page : </p>
                 <Button onClick={onNext} name={'next'} disabled={!currentCard}/>
                 <SingleCard oneCard={currentCard}/>
             {currentCard && grades.map((g, i) => (
-                <button key={'grade-' + i} onClick={() => sentGrade(g)}>{g}</button>))}
+                <Button key={'grade-' + i}
+                        style={{display: 'inline-flex', marginRight: '5px'}}
+                        onClick={() => sentGrade((i + 1))}>{g}</Button>
+            ))}
         </Modal>
     )
 }
 
-const grades = [1, 2, 3, 4, 5]
+const grades = ['😡', '😱', '😨', '😲', '🙂']
+
 const getCard = (cards: CardType[]) => {
     const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0)
     const rand = Math.random() * sum

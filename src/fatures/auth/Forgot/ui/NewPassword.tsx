@@ -5,6 +5,7 @@ import { useParams, RouteComponentProps, Redirect } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../../bll/store';
 import { newPassword } from '../bll/recoveryReducer';
+import { PATH_LOGIN } from '../../../../Routes/Routes';
 
 
 export const NewPassword = React.memo( (props: RouteComponentProps) => {
@@ -20,7 +21,7 @@ export const NewPassword = React.memo( (props: RouteComponentProps) => {
         dispatch(newPassword(token, password))
     }
     if(success) {
-        return <Redirect to={'/login'} />
+        return <Redirect to={PATH_LOGIN} />
     }
     return(
         <div className={'page-form'}>

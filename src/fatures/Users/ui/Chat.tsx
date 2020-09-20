@@ -15,7 +15,7 @@ export const Chat = () => {
 
     useEffect(() => {
         dispatch(getGeneralMessages())
-    }, [])
+    }, [dispatch])
 
     const sendHandler = () => dispatch(sendMessage(value))
     const changeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => setValue(event.currentTarget.value)
@@ -40,7 +40,7 @@ const DialogItem: React.FC<{ message: MessageType }> = ({message}) => {
     return (
         <div className={style.dialogItem}>
             <label>
-                <img src={avatar || userPng} alt="photo"/>
+                <img src={avatar || userPng} alt='user'/>
             </label>
             <div className={style.messageBody}>
                 <h5>{message.user_name}<span>{diffDays} day ago</span></h5>

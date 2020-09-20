@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {deletePack, updatePack} from '../bll/packsReducer'
 import {Link} from '../../../components/helpComponent/Link'
 import {FormModal} from '../../../components/helpComponent/FormModal'
+import {PATH_CARD} from '../../../Routes/Routes'
 
 
 export const CardPack = React.memo((props: CardType) => {
@@ -14,7 +15,7 @@ export const CardPack = React.memo((props: CardType) => {
     return (
         <>
             <tr>
-                <td><Link path={'/cards/' + props.id} title={props.name}/></td>
+                <td><Link path={PATH_CARD + props.id} title={props.name}/></td>
                 <td>{props.grade}</td>
                 <td>{props.cardsCount}</td>
                 <td>
