@@ -12,7 +12,7 @@ export const chatReducer = (state = initialState, action: Actions) => {
         case 'CHAT-REDUCER/SET-MESSAGES':
             return {...state, messages: [...action.messages]}
         case 'CHAT-REDUCER/MESSAGE':
-            return {...state, messages: [...state.messages, action.body]}
+            return {...state, messages: [action.body, ...state.messages]}
         case 'CHAT-REDUCER/INITIALDIALOG':
             return {...state, initialDialog: action.value}
         default:

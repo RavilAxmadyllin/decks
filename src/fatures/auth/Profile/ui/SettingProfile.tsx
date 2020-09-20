@@ -14,8 +14,10 @@ export const SettingProfile: React.FC<PropsType> = ({show, onShow}) => {
     const [avatar, setAvatar] = useState<string | null>(profile.avatar)
     const dispatch = useDispatch()
     const submitHandler = () => {
-        if (avatar && value) {
-            dispatch(changeProfile(value, avatar))
+        if (value) {
+            if (avatar) {
+                dispatch(changeProfile(value, avatar))
+            } else dispatch(changeProfile(value, ''))
             onShow()
         }
     }
