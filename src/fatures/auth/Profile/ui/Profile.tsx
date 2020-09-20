@@ -7,7 +7,7 @@ import {Button} from '../../../../components/helpComponent/Button'
 export const Profile = React.memo(({profile, logout, showSetting}: ProfilePropsType) => {
 
     return (
-        <div className={'page'}>
+        <div className={style.page}>
             <div className={style.overlayProfile}>
                 <div className={style.profile}>
                     <img src={profile.avatar ? profile.avatar : userPhoto} alt="user"/>

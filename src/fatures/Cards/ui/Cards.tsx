@@ -52,7 +52,6 @@ export const Cards = React.memo((props: RouteComponentProps<any>) => {
                 <table>
                     <thead>
                     <tr>
-                        <td>Question</td>
                         <td>Gade</td>
                         <td>delete</td>
                         <td>update</td>
@@ -61,7 +60,6 @@ export const Cards = React.memo((props: RouteComponentProps<any>) => {
                     <tbody>
                     {cards.map(c => {
                         return <tr key={c.more_id + c.created} id={c._id}>
-                            <td>{c.question}</td>
                             <td>{c.grade}</td>
                             <td onClick={() => deleteCardHandler(c._id)}><span>delete</span></td>
                             <td onClick={() => openUpdateModal(c._id)}><span>update</span></td>

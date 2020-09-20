@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {SingleCard} from '../../Cards/ui/SingleCard'
 import {Modal} from '../../Modal/Modal'
-import style from './LearnPage.module.scss'
 import {Button} from '../../../components/helpComponent/Button'
 import {sendGrade} from '../../Cards/bll/cardsReducer'
 
@@ -20,10 +19,8 @@ export const LearnPage: React.FC<PropsType> = ({id, cards, show, onClose}) => {
     return (
         <Modal show={show} closeModal={onClose}>
             <p>Learn page : </p>
-            <div className={style.page}>
                 <Button onClick={onNext} name={'next'} disabled={!currentCard}/>
                 <SingleCard oneCard={currentCard}/>
-            </div>
             {currentCard && grades.map((g, i) => (
                 <button key={'grade-' + i} onClick={() => sentGrade(g)}>{g}</button>))}
         </Modal>

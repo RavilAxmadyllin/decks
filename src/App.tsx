@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from './bll/store'
 import {ErrorBar} from './components/helpComponent/ErrorBar'
 import {initApp} from './fatures/auth/InitialApp/appReducer'
-import {Users} from './fatures/Users/ui/Users'
+import {Preloader} from './components/helpComponent/Preloader'
 
 
 const App: React.FC = () => {
@@ -20,9 +20,10 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
-            <Header profile={profile} isAuth={isAuth} isLoading={isLoading}/>
+            <Header profile={profile} isAuth={isAuth}/>
             <ErrorBar/>
             <Routes/>
+            {true && <Preloader/>}
         </div>
     )
 }

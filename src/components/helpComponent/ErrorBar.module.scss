@@ -1,12 +1,9 @@
 .wrapper {
-  display: flex;
-  z-index: 1400;
   position: fixed;
-  align-items: center;
-  justify-content: center;
   left: 50%;
   right: auto;
   bottom: 24px;
+  z-index: 1400;
   transform: translateX(-50%);
 }
 

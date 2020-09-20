@@ -3,6 +3,7 @@
 
   .container {
     max-width: 1000px;
+    width: 100%;
     margin: 20px auto;
 
     .btn {
@@ -53,7 +54,12 @@
         font-size: 15px;
       }
     }
+  }
+}
 
-
+@media (max-width: 367px) {
+  .userItem {
+    margin: 0;
+    padding: 10px;
   }
 }

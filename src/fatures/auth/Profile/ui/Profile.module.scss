@@ -1,20 +1,33 @@
-.overlayProfile{
+.page {
+  display: flex;
+  margin: 50px 20px;
+
+  .overlayProfile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-    .profile{
-        background: #dcd9d9;
-        border-radius: 10px;
-        width: 120px;
-        height: 130px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    .profile {
+      background: #dcd9d9;
+      border-radius: 10px;
+      width: 120px;
+      height: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
     .profile img {
-        width: 100px;
-        height: auto;
+      width: 100px;
+      height: auto;
+    }
+  }
+}
+@media (max-width: 600px) {
+    .page{
+        display: none;
     }
 }
+
+
 

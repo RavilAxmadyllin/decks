@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './Header.module.scss'
 import ava from '../assets/avatar.png'
-import {NavLink} from 'react-router-dom'
 import {Link} from '../components/helpComponent/Link'
 import {Preloader} from '../components/helpComponent/Preloader'
 
@@ -12,23 +11,23 @@ export const Header = (props: PropsType) => {
     return (
         <div className={style.header}>
             <div className={style.container}>
-                <div className={style.secondBlock}>
-                    <Link path={'/profile'} title={'LOGO'}/>
-                    <div><NavLink to={'/users'} className={style.link} activeClassName={style.active}>users</NavLink>
-                    </div>
+                <div>
+                    <Link path={'/profile'} title={'logo'}/>
+                    <Link path={'/users'} title={'users'}/>
                 </div>
-                <div className={style.navBar}>
-                    {!props.isAuth && <>
-                        <NavLink to={'/forgot'} className={style.link} activeClassName={style.active}>forgot</NavLink>
-                        <NavLink to={'/login'} className={style.link} activeClassName={style.active}>login</NavLink>
-                    </>}
+                <div className={style.rightBlock}>
+                    {!props.isAuth ? <>
+                            <Link path={'/forgot'} title={'forgot'}/>
+                            <Link path={'/login'} title={'login'}/>
+                        </> :
+                        <div className={style.user}>
+                            <img src={userPhoto} alt="avatar"/>
+                            <Link path={'/profile'} title={name}/>
+                        </div>
+                    }
                 </div>
-                {props.isAuth && <div className={style.user}>
-                    <img src={userPhoto} alt="avatar"/>
-                    <Link path={'/profile'} title={name}/>
-                </div>}
             </div>
-            {props.isLoading && <Preloader/>}
+
         </div>
     )
 }
@@ -42,5 +41,4 @@ type PropsType = {
         id: string | null
         avatar: string | null
     }
-    isLoading: boolean
 }
