@@ -3,10 +3,10 @@
   left: 50%;
   top: 72px;
   transform: translate(-50%, 10%);
-  z-index: 100;
+  z-index: 1000;
 
   .loading {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .loading:after {

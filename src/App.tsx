@@ -23,7 +23,7 @@ const App: React.FC = () => {
             <Header profile={profile} isAuth={isAuth}/>
             <ErrorBar/>
             <Routes/>
-            {true && <Preloader/>}
+            {isLoading && <Preloader/>}
         </div>
     )
 }

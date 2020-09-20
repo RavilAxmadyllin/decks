@@ -52,8 +52,7 @@ const User: React.FC<{ user: UserType }> = ({user}) => {
     return (
         <label className={style.userItem}>
             <div className={style.avatar}>
-                <img style={{height: '90px'}}
-                     src={user.avatar ? user.avatar : userPng} alt="photo"/>
+                <img src={user.avatar ? user.avatar : userPng} alt="photo"/>
             </div>
             <div className={style.userDesc}>
                 <h4><span>name :</span> {user.name}</h4>
