@@ -7,11 +7,14 @@ import {NewPassword} from '../fatures/auth/Forgot/ui/NewPassword'
 import {Cards} from '../fatures/Cards/ui/Cards'
 import {ProfileContainer} from '../fatures/auth/Profile/ui/ProfileContainer';
 import {Users} from '../fatures/Users/ui/Users'
+import {DefMap} from '../fatures/Map'
 
 export const Routes = () => {
     return (
         <Switch>
             <Route path={'/login'} render={ () => <Login />}/>
+            <Route exact path={'/'} render={ () => <ProfileContainer />}/>
+            <Route path={'/map'} render={ () => <DefMap /> }/>
             <Route path={'/profile'} render={ () => <ProfileContainer />}/>
             <Route path={'/cards/:id'} render={ (props) => <Cards {...props}/>}/>
             <Route path={'/registration'} render={ () => <RegisterForm />}/>

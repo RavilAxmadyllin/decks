@@ -7,6 +7,7 @@ import {AppStateType} from './bll/store'
 import {ErrorBar} from './components/helpComponent/ErrorBar'
 import {initApp} from './fatures/auth/InitialApp/appReducer'
 import {Preloader} from './components/helpComponent/Preloader'
+import {DefMap} from './fatures/Map'
 
 
 const App: React.FC = () => {
