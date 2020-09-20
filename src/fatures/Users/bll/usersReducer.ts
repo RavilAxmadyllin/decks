@@ -1,4 +1,4 @@
-import {chatAPI, UserType} from '../dal/chatAPI'
+import {userAPI, UserType} from '../dal/userAPI'
 import {ThunkActionType} from '../../../entites/entites'
 import Cookies from 'js-cookie'
 import { setTotalPage } from '../../Search/bll/searchReducer'
@@ -20,7 +20,7 @@ const setUsersSuccess = (users: Array<UserType>) => ({type: 'USERS-REDUCER/SET_U
 export const getUsers = (page: number):ThunkAction => async (dispatch) => {
     dispatch(payload(true, null))
     try {
-        const data = await chatAPI.getUsers(page)
+        const data = await userAPI.getUsers(page)
         dispatch(setUsersSuccess(data.users))
         Cookies.set('token', data.token)
         dispatch(setTotalPage(data.usersTotalCount, page))

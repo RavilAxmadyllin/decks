@@ -8,10 +8,12 @@ import {cardsReducer} from '../fatures/Cards/bll/cardsReducer'
 import {searchReducer} from '../fatures/Search/bll/searchReducer'
 import {appReducer} from '../fatures/auth/InitialApp/appReducer'
 import {usersReducer} from '../fatures/Users/bll/usersReducer'
+import {chatReducer} from '../fatures/Users/bll/chatReducer'
 
 const rootReducer = combineReducers({
     app: appReducer,
     users: usersReducer,
+    chat: chatReducer,
     login: loginReducer,
     register: registerReducer,
     recovery: recoveryReducer,

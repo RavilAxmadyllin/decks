@@ -1,6 +1,5 @@
 .wrap {
   width: 100%;
-  min-height: 70vh;
 
   .container {
     max-width: 1000px;
@@ -11,13 +10,13 @@
       justify-content: flex-end;
     }
 
-    .UsersBlock {
+    .usersBlock {
       height: 50vh;
-      width: 600px;
+      max-width: 600px;
       overflow-y: auto;
       margin: 30px 0;
 
-      .UserItem {
+      .userItem {
         display: flex;
         padding: 10px;
         background: #edeef0;
@@ -28,10 +27,10 @@
         &:nth-child(even) {
           background: #fff;
         }
+
         &:focus, &:active {
           background: #49a09d;
         }
-
 
 
         .avatar {
@@ -54,5 +53,7 @@
         font-size: 15px;
       }
     }
+
+
   }
 }

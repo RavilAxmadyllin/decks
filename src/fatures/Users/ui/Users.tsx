@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react'
-import {UserType} from '../dal/chatAPI'
+import React, {useEffect, useRef, useState} from 'react'
+import {UserType} from '../dal/userAPI'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../../bll/store'
 import style from './Users.module.scss'
@@ -7,11 +7,14 @@ import {Button} from '../../../components/helpComponent/Button'
 import userPng from '../../../assets/avatar.png'
 import {getUsers} from '../bll/usersReducer'
 import {setPage} from '../../Search/bll/searchReducer'
+import {Chat} from './Chat'
+
 
 export const Users = () => {
     const dispatch = useDispatch()
     const {page, total} = useSelector((state: AppStateType) => state.search.settings)
     const users = useSelector((state: AppStateType) => state.users.users)
+    const [showUser, setShowUser] = useState(false)
 
     useEffect(() => {
         dispatch(getUsers(page))
@@ -22,21 +25,23 @@ export const Users = () => {
         const {scrollTop, clientHeight, scrollHeight} = event.currentTarget
         if (scrollHeight - Math.ceil(scrollTop) === clientHeight) dispatch(setPage(page + 1))
     }
+    const changeHandler = () => setShowUser(!showUser)
 
     return (
         <div className={style.wrap}>
             <div className={style.container}>
                 <div className={style.btn}>
-                    <Button>show</Button>
+                    <Button onClick={changeHandler}>show</Button>
                 </div>
-                <>
-                    <h3>Users</h3> <p>count: {total - users.length}</p>
-                    <div className={style.UsersBlock} ref={userBlockRef} onScroll={scrollHandler}>
-                        {users && users.map((u, i) => {
-                            return <User key={u._id + u.created + i} user={u}/>
-                        })}
-                    </div>
-                </>
+                {showUser ? <Chat/>
+                    : <>
+                        <h3>Users</h3> <p>count: {total - users.length}</p>
+                        <div className={style.usersBlock} ref={userBlockRef} onScroll={scrollHandler}>
+                            {users && users.map((u, i) => {
+                                return <User key={u._id + u.created + i} user={u}/>
+                            })}
+                        </div>
+                    </>}
             </div>
 
         </div>
@@ -45,7 +50,7 @@ export const Users = () => {
 
 const User: React.FC<{ user: UserType }> = ({user}) => {
     return (
-        <label className={style.UserItem}>
+        <label className={style.userItem}>
             <div className={style.avatar}>
                 <img style={{height: '90px'}}
                      src={user.avatar ? user.avatar : userPng} alt="photo"/>

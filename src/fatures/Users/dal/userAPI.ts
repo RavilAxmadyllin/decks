@@ -7,25 +7,25 @@ export const inst = axios.create({
 })
 
 
-export const chatAPI = {
+export const userAPI = {
     async getUsers(page: number) {
         const token = Cookies.get('token')
         const result = await inst.get<ResponseUserType>(`social/users?token=${token}&page=${page}&pageCount=7`)
         return result.data
     },
+    async getUser(token: string, id: string) {
+    const result = await inst.get<FindUserType>(`/social/user?token=${token}&id=${id}`)
+    return result.data
+    },
     async sendMessage(token: string, message: string) {
-        const result = await inst.post('social/general/message', {token, message})
+        const result = await inst.post<ResponseSendMessageType>('social/general/message', {token, message})
         return result.data
     },
     async generalMessages(token: string) {
         const result = await inst.get<ResponseMessagesType>(`/social/general/message?token=${token}`)
         return result.data
     },
-    async getUser(token: string, id: string) {
-        const result = await inst.get<FindUserType>(`/social/user?token=${token}&id=${id}`)
-        debugger
-        return result.data
-    }
+
 }
 
 
@@ -54,13 +54,19 @@ type ResponseMessagesType = {
     token: string
     generalChatMessages: Array<MessageType>
 }
-type MessageType = {
+type ResponseSendMessageType = {
+    token: string
+    newGeneralChatMessage: MessageType
+}
+export type MessageType = {
+    avatar: string
     created: string
     isAdmin: boolean
     message: string
     updated: string
     user_id: string
     user_name: string
+    _id: string
 }
 type FindUserType = {
     token: string
