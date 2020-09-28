@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Header.module.scss'
 import ava from '../assets/avatar.png'
 import {Link} from '../components/helpComponent/Link'
-import {MAP, PATH_LOGIN, PATH_PROFILE, PATH_USERS} from '../Routes/Routes'
+import {Preloader} from '../components/helpComponent/Preloader'
 
 
 export const Header = (props: PropsType) => {
@@ -12,14 +12,17 @@ export const Header = (props: PropsType) => {
         <div className={style.header}>
             <div className={style.container}>
                 <div>
-                    <Link path={PATH_USERS} title={'users'}/>
-                    <Link path={MAP} title={'map'}/>
+                    <Link path={'/profile'} title={'logo'}/>
+                    <Link path={'/users'} title={'users'}/>
                 </div>
                 <div className={style.rightBlock}>
-                    {!props.isAuth ? <Link path={PATH_LOGIN} title={'login'}/>
-                        : <div className={style.user}>
+                    {!props.isAuth ? <>
+                            <Link path={'/forgot'} title={'forgot'}/>
+                            <Link path={'/login'} title={'login'}/>
+                        </> :
+                        <div className={style.user}>
                             <img src={userPhoto} alt="avatar"/>
-                            <Link path={PATH_PROFILE} title={name}/>
+                            <Link path={'/profile'} title={name}/>
                         </div>
                     }
                 </div>
