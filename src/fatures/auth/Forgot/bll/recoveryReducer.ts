@@ -30,9 +30,9 @@ export const recoveryThunk = (email: string) => {
     return async (dispatch: Dispatch<RecoveryActions>) => {
         dispatch(actions.recoveryPayload(true, '', false))
         try {
-            const html1 = "<a href='https://ravilaxmadyllin.github.io/decks/reset-password/"
+            const html1 = "<a href='https://ravilaxmadyllin.github.io/decks/#/reset-password/"
             const html2 = ">reset-password-link</a>"
-            const data = await recoveryAPI.sendRequest(email, html1, html2)
+            const data = await recoveryAPI.sendRequest(email.toLowerCase(), html1, html2)
             dispatch(actions.recoveryPayload(false, '', data.success))
         }
         catch (e) {
